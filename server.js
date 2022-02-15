@@ -24,16 +24,16 @@ app.use("/api", authRoutes);
 app.use("/api", restaurantRoutes);
 app.use("/api", userSettingRoutes);
 
-// For HEROKU deployment
-if (process.env.NODE_ENV === "production") {
-  // Set static folder
-  app.use(express.static("frontend/build"));
+// // For HEROKU deployment
+// if (process.env.NODE_ENV === "production") {
+//   // Set static folder
+//   app.use(express.static("frontend/build"));
 
-  // Index.html for all page routes
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"));
-  });
-}
+//   // Index.html for all page routes
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"));
+//   });
+// }
 
 //  ************** LISTENER ************** //
 const PORT = process.env.PORT || 5001;
